@@ -37,7 +37,7 @@ jobs:
       - name: Set Output
         id: vars
         run: |
-          string="string"
+          string="hello"
           echo ::set-output name=string::$string
 
       - name: Echo Output

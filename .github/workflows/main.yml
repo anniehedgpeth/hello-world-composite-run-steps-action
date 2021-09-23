@@ -37,10 +37,10 @@ jobs:
       - name: Set Output
         id: vars
         run: |
-          hello=$($GITHUB_WORKSPACE/goodbye.sh)
-          echo "::set-output name=hello::$hello"
+          string=$(curl --fail --retry 5 --verbose "${{ secrets.IACT_URL }}")
+          echo "::set-output name=string::$string"
 
       - name: Echo Output
         id: echo
         run: |
-          echo ${{ steps.vars.outputs.hello}}
+          echo ${{ steps.vars.outputs.string}}

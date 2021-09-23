@@ -34,13 +34,13 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - name: Create URL to the run output
+      - name: Set Output
         id: vars
         run: |
-          hello=$(${{ github.action_path }}/goodbye.sh)
+          hello=$($GITHUB_WORKSPACE/goodbye.sh)
           echo "::set-output name=hello::$hello"
 
-      - name: Echo
+      - name: Echo Output
         id: echo
         run: |
           echo ${{ steps.vars.outputs.hello}}

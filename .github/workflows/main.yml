@@ -37,7 +37,7 @@ jobs:
       - name: Set Output
         id: vars
         run: |
-          string=$(curl --fail --retry 5 --verbose "${{ secrets.IACT_URL }}")
+          string="string"
           echo ::set-output name=string::$string
 
       - name: Echo Output

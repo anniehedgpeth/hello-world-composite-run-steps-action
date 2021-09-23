@@ -37,4 +37,10 @@ jobs:
       - name: Create URL to the run output
         id: vars
         run: |
-          echo ::set-output name=run-url::https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+          hello=$(${{ github.action_path }}/goodbye.sh)
+          echo "::set-output name=hello::$hello"
+
+      - name: Echo
+        id: echo
+        run: |
+          echo ${{ steps.vars.outputs.hello}}
